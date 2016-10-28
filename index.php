@@ -2,6 +2,7 @@
 <head>
     <meta http-equiv="Content-Type" charset="UTF-8">
     <title>Maxcell 广创 2016</title>
+    <meta id="viewport" name="viewport" content="width=device-width">
     <script src="jquery-2.1.1.min.js"></script>
     <script src="submit.js"></script>
     <link rel="stylesheet" href="index.css" type="text/css">
@@ -111,6 +112,4 @@
         <p>Copyright &copy;2016 Maxcell. All rights reserved.</p>
     </div>
 </footer>
-<script type="text/javascript" src="//o5ngisf7c.qnssl.com/source/jquery/jquery.bs.js"></script>
-<script src="index.js"></script>
 </html>
