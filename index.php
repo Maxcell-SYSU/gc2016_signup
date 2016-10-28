@@ -18,12 +18,12 @@
                 <form class="img-rounded form-horizontal form" id="sign_up_form">
                     <div id="team_type_area" class="form-group">
                         <label class="labels control-label col-sm-3">组别: </label>
-                        <div id="special-input " class="col-sm-3 control-label" style="text-align: left;">
+                        <div id="special-input " class="col-sm-4 control-label" style="text-align: left;">
                             <input type="radio" name="team_type" id="type_video" value="0"
                                    onchange="typeChange(this.id)"><span
                                 class="option_content"> 视频组</span>
                         </div>
-                        <div class="col-sm-6 control-label" style="text-align: left;">
+                        <div class="col-sm-5 control-label" style="text-align: left;">
                             <input type="radio" name="team_type" id="type_graph" value="1"
                                    onchange="typeChange(this.id)"><span
                                 class="option_content"> 平面组</span>
