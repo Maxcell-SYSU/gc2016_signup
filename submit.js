@@ -1,6 +1,14 @@
 /**
  * Created by Jerry on 2016/10/27.
  */
+function warning(ele, tex) {
+    if (document.getElementById("bg").offsetWidth < 540) {
+        $(ele).append("<label class='warning control-label col-sm-12' style='text-align: left;'>" + tex + "</label>");
+    } else {
+        $(ele).append("<label class='warning control-label col-sm-offset-3 col-sm-9' style='text-align: left;'>" + tex + "</label>");
+    }
+};
+
 var teamType = null;
 function submit() {
     var isOK = true;
@@ -10,37 +18,37 @@ function submit() {
     //if ($("#type_video").checked==true) teamType = 0;
     //if ($("#type_graph").checked==true) teamType = 1;
     if (teamType == null) {
-        $("#team_type_area").append("<label class='warning control-label col-sm-offset-3 col-sm-9' style='text-align: left;'>请选择组别!</label>");
+        warning("#team_type_area", "请选择组别!");
         isOK = false;
     }
 
     var teamName = $("#team_name").val();
     teamName = teamName.replace(/\s+/g, ' ');
     if (teamName == "" || teamName == " ") {
-        $("#team_name_area").append("<label class='warning control-label col-sm-offset-3 col-sm-9' style='text-align: left;'>队伍名称不能为空!</label>");
+        warning("#team_name_area","队伍名称不能为空!");
         isOK = false;
     }
 
     var teamNum = parseInt($("#team_members").val());
     if (isNaN(teamNum) || teamNum == false) {
-        $("#team_members_area").append("<label class='warning control-label col-sm-offset-3 col-sm-9' style='text-align: left;'>人数不能为空!</label>");
+        warning("#team_members_area","人数不能为空!");
         isOK = false;
     }
     if (teamNum < 1 || teamNum > 6) {
-        $("#team_members_area").append("<label class='warning control-label col-sm-offset-3 col-sm-9' style='text-align: left;'>人数超出限制范围!</label>");
+        warning("#team_members_area","人数超出限制范围!");
         isOK = false;
     }
 
     var capName = $("#captain_name").val();
     capName = capName.replace(/\s+/g, ' ');
     if (capName == "" || capName == " ") {
-        $("#captain_name_area").append("<label class='warning control-label col-sm-offset-3 col-sm-9' style='text-align: left;'>队长名称不能为空!</label>");
+        warning("#captain_name_area","队长名称不能为空!");
         isOK = false;
     }
 
     var school = $("#schools option:selected").val();
     if (school == null || school == "") {
-        $("#schools_area").append("<label class='warning control-label col-sm-offset-3 col-sm-9' style='text-align: left;'>请选择学校!</label>");
+        warning("#schools_area","请选择学校!");
         isOK = false;
     }
 
@@ -49,19 +57,19 @@ function submit() {
     var phone = $("#phone_number").val();
     phone = phone.replace(/\s+/g, ' ');
     if (phone == "" || phone == " ") {
-        $("#phone_number_area").append("<label class='warning control-label col-sm-offset-3 col-sm-9' style='text-align: left;'>必须输入手机号!</label>");
+        warning("#phone_number_area","必须输入手机号!");
         isOK = false;
     }
 
     var QQ = $("#qq_number").val();
     if (isNaN(parseInt(QQ)) || parseInt(QQ) == null || QQ == "") {
-        $("#qq_number_area").append("<label class='warning control-label col-sm-offset-3 col-sm-9' style='text-align: left;'>输入的 QQ 号不正确!</label>")
+        warning("#qq_number_area","输入的 QQ 号不正确!")
     }
 
     var wechat = $("#wechat_id").val();
     wechat = wechat.replace(/\s+/g, '');
     if (wechat == "") {
-        $("#wechat_id_area").append("<label class='warning control-label col-sm-offset-3 col-sm-9' style='text-align: left;'>必须输入微信号!</label>");
+        warning("#wechat_id_area","必须输入微信号!");
         isOK = false;
     }
 
