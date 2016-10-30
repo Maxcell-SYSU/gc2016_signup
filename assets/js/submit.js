@@ -33,9 +33,8 @@ function submit() {
     if (isNaN(teamNum) || teamNum == false) {
         warning("#team_members_area","人数不能为空!");
         isOK = false;
-    }
-    if (teamNum < 1 || teamNum > 6) {
-        warning("#team_members_area","人数超出限制范围!");
+    } else if (teamNum < 1) {
+        warning("#team_members_area","参赛人数必须大于1！");
         isOK = false;
     }
 
@@ -67,11 +66,6 @@ function submit() {
     }
 
     var wechat = $("#wechat_id").val();
-    wechat = wechat.replace(/\s+/g, '');
-    if (wechat == "") {
-        warning("#wechat_id_area","必须输入微信号!");
-        isOK = false;
-    }
 
     console.log(teamType, teamName, teamNum, capName, school, stuID, phone, QQ, wechat);
 
@@ -88,7 +82,7 @@ function submit() {
                 'stuID': stuID,
                 'phone': phone,
                 'QQ': QQ,
-                'wechat': wechat,
+                'wechat': wechat
             },
             success: function (msg) {
                 console.log(msg);
@@ -101,9 +95,9 @@ function submit() {
                     $("#phone_number").val("");
                     $("#qq_number").val("");
                     $("#wechat_id").val("");
-                    alert(ret['msg']);
+                    alert(ret['msg'] + "有问题请联系Maxcell公众号");
                 } else {
-                    alert(ret['msg']);
+                    alert(ret['msg'] + "有问题请联系Maxcell公众号");
                 }
             }
         });
@@ -112,7 +106,7 @@ function submit() {
 
 function typeChange(id) {
     if (id == "type_video") {
-        $("#team_members").attr("placeholder", "必须为 1~6 人");
+        $("#team_members").attr("placeholder", "> 1 人");
         $("#team_members").val("");
         $("#team_members").removeAttr("disabled");
         teamType = 0;
